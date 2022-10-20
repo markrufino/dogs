@@ -44,9 +44,31 @@ extension ApiService: TargetType {
         }
     }
     
+    var sampleData: Data {
+        switch self {
+        case .getAllBreeds:
+            return loadStubData("stubGetAllBreeds")
+        case .getImagesByBreed:
+            return loadStubData("stubGetImagesByBreed")
+        }
+    }
+    
     var headers: [String : String]? {
         return ["content-type": "json"]
     }
     
     
+}
+
+extension ApiService {
+    
+    private func loadStubData(_ fileName: String) -> Data {
+        guard
+            let res = Bundle.main.url(forResource: fileName, withExtension: "json"),
+            let data = try? Data(contentsOf: res)
+        else {
+            return "{}".data(using: .utf8)!
+        }
+        return data
+    }
 }

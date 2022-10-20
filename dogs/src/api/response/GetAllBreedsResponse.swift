@@ -7,5 +7,7 @@
 
 import Foundation
 
-struct GetAllBreedsResponse: Encodable {
+struct GetAllBreedsResponse: Decodable {
+    var message: [String: [String]]
+    var status: String?
 }

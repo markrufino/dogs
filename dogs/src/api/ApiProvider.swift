@@ -8,9 +8,10 @@
 import Foundation
 import Moya
 
-class ApiProvider: MoyaProvider<ApiService> {
+class ApiProvider {
     
-    init() {
-    }
+    static let `default` = MoyaProvider<ApiService>()
+    
+    static let stubbed = MoyaProvider<ApiService>(stubClosure: MoyaProvider.immediatelyStub)
     
 }

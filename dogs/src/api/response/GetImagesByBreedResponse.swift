@@ -7,5 +7,5 @@
 
 import Foundation
 
-struct GetImagesByBreedResponse: Encodable {
+struct GetImagesByBreedResponse: Decodable {
 }
