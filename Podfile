@@ -7,6 +7,7 @@ target 'dogs' do
 
   # Pods for dogs
   pod 'Alamofire'
+  pod 'Moya'
 
   target 'dogsTests' do
     inherit! :search_paths
