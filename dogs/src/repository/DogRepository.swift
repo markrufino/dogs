@@ -9,11 +9,11 @@ import Foundation
 import Alamofire
 
 typealias FetchAllBreedsHandler = (Result<[Breed], Error>) -> Void
-typealias FetchDogsHandler = (Result<[String], Error>) -> Void
+typealias FetchDogImagesHandler = (Result<[DogImage], Error>) -> Void
 
 protocol DogRepository {
     func fetchAllBreeds(handler: @escaping FetchAllBreedsHandler)
-    func fetchDogImages(byBreed breed: String, inPage pge: Int, handler: @escaping FetchDogsHandler)
+    func fetchDogImages(byBreed breed: String, count: Int, inPage pge: Int, handler: @escaping FetchDogImagesHandler)
 }
 
 class DogDataRepository: DogRepository {
@@ -47,7 +47,29 @@ class DogDataRepository: DogRepository {
         }
     }
     
-    func fetchDogImages(byBreed breed: String, inPage page: Int, handler: @escaping FetchDogsHandler) {
+    
+    /// NOTE: Page starts at 1
+    func fetchDogImages(byBreed breed: String, count: Int, inPage page: Int, handler: @escaping FetchDogImagesHandler) {
+        provider.request(.getImagesByBreed(breed: breed)) { result in
+            switch result {
+            case .success(let resp):
+                
+                do {
+                    let mapped = try JSONDecoder().decode(GetImagesByBreedResponse.self, from: resp.data)
+                    
+                    let images = mapped.message
+                        .map({ DogImage(url: $0) })
+                        .chunked(into: count)[page - 1]
+                    
+                    handler(.success(images))
+                } catch {
+                    handler(.failure(error))
+                }
+                
+            case .failure(let error):
+                handler(.failure(error))
+            }
+        }
     }
     
 }

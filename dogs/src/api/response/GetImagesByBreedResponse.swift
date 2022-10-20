@@ -8,4 +8,5 @@
 import Foundation
 
 struct GetImagesByBreedResponse: Decodable {
+    var message: [URL]
 }
