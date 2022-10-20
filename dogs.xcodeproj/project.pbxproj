@@ -99,13 +99,14 @@
 		5C5BB8842900E91000E488B1 /* dogs */ = {
 			isa = PBXGroup;
 			children = (
+				5C5BB8932900E91100E488B1 /* Info.plist */,
 				5C5BB8852900E91000E488B1 /* AppDelegate.swift */,
 				5C5BB8872900E91000E488B1 /* SceneDelegate.swift */,
 				5C5BB8892900E91000E488B1 /* ViewController.swift */,
-				5C5BB88B2900E91000E488B1 /* Main.storyboard */,
 				5C5BB88E2900E91100E488B1 /* Assets.xcassets */,
 				5C5BB8902900E91100E488B1 /* LaunchScreen.storyboard */,
-				5C5BB8932900E91100E488B1 /* Info.plist */,
+				5C5BB88B2900E91000E488B1 /* Main.storyboard */,
+				5C5BB8B82900EADB00E488B1 /* src */,
 			);
 			path = dogs;
 			sourceTree = "<group>";
@@ -125,6 +126,37 @@
 				5C5BB8A82900E91100E488B1 /* dogsUITestsLaunchTests.swift */,
 			);
 			path = dogsUITests;
+			sourceTree = "<group>";
+		};
+		5C5BB8B52900EA6600E488B1 /* api */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		5C5BB8B62900EA9000E488B1 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		5C5BB8B72900EABE00E488B1 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = repository;
+			sourceTree = "<group>";
+		};
+		5C5BB8B82900EADB00E488B1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				5C5BB8B62900EA9000E488B1 /* view */,
+				5C5BB8B72900EABE00E488B1 /* repository */,
+				5C5BB8B52900EA6600E488B1 /* api */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
