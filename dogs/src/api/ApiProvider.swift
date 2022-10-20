@@ -8,10 +8,20 @@
 import Foundation
 import Moya
 
-class ApiProvider {
+class ApiProvider: MoyaProvider<ApiService> {
     
-    static let `default` = MoyaProvider<ApiService>()
+    enum Env {
+        case test
+        case `default`
+    }
     
-    static let stubbed = MoyaProvider<ApiService>(stubClosure: MoyaProvider.immediatelyStub)
+    init(env: Env) {
+        switch env {
+        case .test:
+            super.init(stubClosure: MoyaProvider.immediatelyStub)
+        default:
+            super.init()
+        }
+    }
     
 }

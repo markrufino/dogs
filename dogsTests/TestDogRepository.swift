@@ -11,15 +11,19 @@ import XCTest
 class TestDogRepository: XCTestCase {
     
     func testFetchAllBreeds() {
-        let repository = DogDataRepository()
+        let repository = DogDataRepository(env: .test)
+        
         repository.fetchAllBreeds { result in
             switch result {
-            case .success(let success):
-                XCTAssert(true)
+            case .success(let breeds):
+                XCTAssert(!breeds.isEmpty)
+                XCTAssertEqual(breeds.count, 98)
+                XCTAssertEqual(breeds[5].subBreeds[0], "shepherd")
             case .failure(let error):
                 XCTAssert(false)
             }
         }
+        
     }
     
     func testFetchDogImagesByBreed() {

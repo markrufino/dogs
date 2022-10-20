@@ -18,14 +18,25 @@ protocol DogRepository {
 
 class DogDataRepository: DogRepository {
     
+    let provider: ApiProvider
+    
+    init(env: ApiProvider.Env) {
+        self.provider = ApiProvider(env: env)
+    }
+    
     func fetchAllBreeds(handler: @escaping FetchAllBreedsHandler) {
-        ApiProvider.default.request(.getAllBreeds) { result in
+        provider.request(.getAllBreeds) { result in
             switch result {
             case .success(let resp):
                 
                 do {
-                    let allBreeds = try JSONDecoder().decode(GetAllBreedsResponse.self, from: resp.data)
-                    handler(.success([]))
+                    let mapped = try JSONDecoder().decode(GetAllBreedsResponse.self, from: resp.data)
+                    let breeds = mapped.message
+                        .map { (key, value) in
+                            return Breed(main: key, subBreeds: value)
+                        }
+                        .sorted(by: { $0.main < $1.main })
+                    handler(.success(breeds))
                 } catch {
                     handler(.failure(error))
                 }
