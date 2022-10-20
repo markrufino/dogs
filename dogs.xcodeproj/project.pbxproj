@@ -18,6 +18,8 @@
 		5C3E414129010A5100249EDB /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E414029010A5100249EDB /* Breed.swift */; };
 		5C3E414429010CBE00249EDB /* stubGetAllBreeds.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C3E414329010CBE00249EDB /* stubGetAllBreeds.json */; };
 		5C3E414629010CE200249EDB /* stubGetImagesByBreed.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C3E414529010CE200249EDB /* stubGetImagesByBreed.json */; };
+		5C3E414A2901157500249EDB /* DogImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E41492901157500249EDB /* DogImage.swift */; };
+		5C3E414D2901186D00249EDB /* Array+chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E414C2901186D00249EDB /* Array+chunked.swift */; };
 		5C5BB8862900E91000E488B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5BB8852900E91000E488B1 /* AppDelegate.swift */; };
 		5C5BB8882900E91000E488B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5BB8872900E91000E488B1 /* SceneDelegate.swift */; };
 		5C5BB88A2900E91000E488B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5BB8892900E91000E488B1 /* ViewController.swift */; };
@@ -56,6 +58,8 @@
 		5C3E414029010A5100249EDB /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		5C3E414329010CBE00249EDB /* stubGetAllBreeds.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = stubGetAllBreeds.json; sourceTree = "<group>"; };
 		5C3E414529010CE200249EDB /* stubGetImagesByBreed.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = stubGetImagesByBreed.json; sourceTree = "<group>"; };
+		5C3E41492901157500249EDB /* DogImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImage.swift; sourceTree = "<group>"; };
+		5C3E414C2901186D00249EDB /* Array+chunked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+chunked.swift"; sourceTree = "<group>"; };
 		5C5BB8822900E91000E488B1 /* dogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C5BB8852900E91000E488B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C5BB8872900E91000E488B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				5C3E414029010A5100249EDB /* Breed.swift */,
+				5C3E41492901157500249EDB /* DogImage.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -144,6 +149,14 @@
 				5C3E414529010CE200249EDB /* stubGetImagesByBreed.json */,
 			);
 			path = stubs;
+			sourceTree = "<group>";
+		};
+		5C3E414B2901185B00249EDB /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5C3E414C2901186D00249EDB /* Array+chunked.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 		5C5BB8792900E91000E488B1 = {
@@ -229,6 +242,7 @@
 		5C5BB8B82900EADB00E488B1 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				5C3E414B2901185B00249EDB /* extensions */,
 				5C3E413F29010A4200249EDB /* model */,
 				5C5BB8B62900EA9000E488B1 /* view */,
 				5C5BB8B72900EABE00E488B1 /* repository */,
@@ -455,10 +469,12 @@
 			files = (
 				5C3E414129010A5100249EDB /* Breed.swift in Sources */,
 				5C5BB88A2900E91000E488B1 /* ViewController.swift in Sources */,
+				5C3E414D2901186D00249EDB /* Array+chunked.swift in Sources */,
 				5C3E41322900F8FE00249EDB /* ApiService.swift in Sources */,
 				5C5BB8862900E91000E488B1 /* AppDelegate.swift in Sources */,
 				5C3E413C2901073400249EDB /* GetImagesByBreedResponse.swift in Sources */,
 				5C3E412A2900EDAE00249EDB /* DogRepository.swift in Sources */,
+				5C3E414A2901157500249EDB /* DogImage.swift in Sources */,
 				5C3E41372900FC4F00249EDB /* ApiProvider.swift in Sources */,
 				5C5BB8882900E91000E488B1 /* SceneDelegate.swift in Sources */,
 				5C3E413A2901071400249EDB /* GetAllBreedsResponse.swift in Sources */,
