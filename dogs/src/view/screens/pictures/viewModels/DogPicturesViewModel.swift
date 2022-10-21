@@ -17,15 +17,19 @@ class DogPicturesViewModel {
     
     private let breedName: String
     
+    private let subBreed: String?
+    
     private var dogImages: [DogImage] = []
     
     private var currentPage = 1
     
     init(
         breedName: String,
+        subBreed: String? = nil,
         dogRepo: DogRepository = DogDataRepository(env: .default)
     ) {
         self.breedName = breedName
+        self.subBreed = subBreed
         self.dogRepo = dogRepo
         
         loadNextPage()
@@ -40,6 +44,7 @@ extension DogPicturesViewModel: PicturesTableViewModel {
     func loadNextPage() {
         dogRepo.fetchDogImages(
             byBreed: breedName,
+            subBreed: subBreed,
             count: 10,
             inPage: currentPage
         ) { [weak self] result in

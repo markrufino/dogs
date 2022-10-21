@@ -27,27 +27,42 @@ class TestDogRepository: XCTestCase {
     }
     
     func testFetchDogImagesByBreed() {
-        let repository = DogDataRepository(env: .test)
-        let breed = "hound-afghan"
-        repository.fetchDogImages(byBreed: breed, count: 10, inPage: 2) { result in
-            switch result {
-            case .success(let images):
-                XCTAssert(!images.isEmpty)
-                XCTAssertEqual(images[1].url.absoluteString, "https://images.dog.ceo/breeds/hound-afghan/n02088094_1126.jpg")
-            case .failure:
-                XCTAssert(false)
-            }
-        }
+        let repository = DogDataRepository(env: .default)
+        let breed = "hound"
+        let expectation = self.expectation(description: "fetchByBreed")
+        var images: [DogImage] = []
         
-        repository.fetchDogImages(byBreed: breed, count: 3, inPage: 2) { result in
+        repository.fetchDogImages(byBreed: breed, subBreed: "afghan", count: 3, inPage: 2) { result in
             switch result {
-            case .success(let images):
-                XCTAssert(!images.isEmpty)
-                XCTAssertEqual(images[1].url.absoluteString, "https://images.dog.ceo/breeds/hound-afghan/n02088094_10715.jpg")
+            case .success(let _images):
+                images = _images;
+                expectation.fulfill()
             case .failure:
                 XCTAssert(false)
             }
         }
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssert(!images.isEmpty)
+        XCTAssertEqual(images[1].url.absoluteString, "https://images.dog.ceo/breeds/hound-afghan/n02088094_10715.jpg")
+    }
+    
+    func testFetchDogImagesWithSubBreed() {
+        let repository = DogDataRepository(env: .default)
+        let breed = "australian"
+        let subBreed = "shepherd"
+        let expectation = self.expectation(description: "fetch")
+        
+        // Test exceeding page
+        repository.fetchDogImages(byBreed: breed, subBreed: subBreed, count: 10, inPage: 2) { result in
+            switch result {
+            case .success(let images):
+                XCTAssert(images.isEmpty)
+                expectation.fulfill()
+            case .failure:
+                XCTAssert(false)
+            }
+        }
+        waitForExpectations(timeout: 3, handler: nil)
     }
     
 }

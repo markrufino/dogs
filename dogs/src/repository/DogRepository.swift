@@ -13,7 +13,8 @@ typealias FetchDogImagesHandler = (Result<[DogImage], Error>) -> Void
 
 protocol DogRepository {
     func fetchAllBreeds(handler: @escaping FetchAllBreedsHandler)
-    func fetchDogImages(byBreed breed: String, count: Int, inPage pge: Int, handler: @escaping FetchDogImagesHandler)
+
+    func fetchDogImages(byBreed breed: String, subBreed: String?, count: Int, inPage pge: Int, handler: @escaping FetchDogImagesHandler)
 }
 
 class DogDataRepository: DogRepository {
@@ -49,19 +50,26 @@ class DogDataRepository: DogRepository {
     
     
     /// NOTE: Page starts at 1
-    func fetchDogImages(byBreed breed: String, count: Int, inPage page: Int, handler: @escaping FetchDogImagesHandler) {
-        provider.request(.getImagesByBreed(breed: breed)) { result in
+    func fetchDogImages(byBreed breed: String, subBreed: String?, count: Int, inPage page: Int, handler: @escaping FetchDogImagesHandler) {
+        provider.request(.getImagesByBreed(breed: breed, subBreed: subBreed)) { result in
             switch result {
             case .success(let resp):
                 
                 do {
                     let mapped = try JSONDecoder().decode(GetImagesByBreedResponse.self, from: resp.data)
                     
-                    let images = mapped.message
+                    let chunks = mapped.message
                         .map({ DogImage(url: $0) })
-                        .chunked(into: count)[page - 1]
+                        .chunked(into: count)
                     
-                    handler(.success(images))
+                    guard (chunks.count > page - 1) else {
+                        handler(.success([]))
+                        return
+                    }
+                    
+                    let paginated = chunks[page - 1]
+                    
+                    handler(.success(paginated))
                 } catch {
                     handler(.failure(error))
                 }

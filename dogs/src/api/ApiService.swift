@@ -11,7 +11,7 @@ import Moya
 enum ApiService {
     
     case getAllBreeds
-    case getImagesByBreed(breed: String)
+    case getImagesByBreed(breed: String, subBreed: String?)
     
 }
 
@@ -25,7 +25,10 @@ extension ApiService: TargetType {
         switch self {
         case .getAllBreeds:
             return "/breeds/list/all"
-        case .getImagesByBreed(let breed):
+        case .getImagesByBreed(let breed, let subBreed):
+            if let _subBreed = subBreed {
+                return "/breed/\(breed)/\(_subBreed)/images"
+            }
             return "/breed/\(breed)/images"
         }
     }
