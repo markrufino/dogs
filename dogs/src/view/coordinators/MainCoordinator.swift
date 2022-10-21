@@ -17,7 +17,7 @@ class MainCoordinator {
     
     func start() {
         let vm = DogBreedsViewModel()
-        let mainVC = ItemsViewController(vm)
+        let mainVC = ItemsViewController(vm, vm)
         mainVC.title = "Breeds"
         mainVC.didSelectItemAt = { indexPath in
             let breed = vm.breeds[indexPath.row]

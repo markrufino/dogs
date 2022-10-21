@@ -42,3 +42,11 @@ extension DogBreedsViewModel: ItemsViewModel {
         breeds.map({ DogBreedCellViewModel($0) })
     }
 }
+
+// MARK: - ItemsViewModel
+
+extension DogBreedsViewModel: Reloadable {
+    func reload() {
+        loadData()
+    }
+}
