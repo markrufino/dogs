@@ -43,7 +43,7 @@ extension DogBreedsViewModel: ItemsViewModel {
     }
 }
 
-// MARK: - ItemsViewModel
+// MARK: - Reloadable
 
 extension DogBreedsViewModel: Reloadable {
     func reload() {
