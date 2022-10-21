@@ -9,16 +9,36 @@ import Foundation
 
 class DogBreedsViewModel {
     
+    let dogRepo: DogRepository
+    
+    var onReloadData: (() -> Void)?
+    
+    private(set) var breeds: [Breed] = []
+    
+    init(_ dogRepo: DogRepository = DogDataRepository(env: .default)) {
+        self.dogRepo = dogRepo
+        setup()
+    }
+    
+    private func setup() {
+        loadData()
+    }
+    
+    private func loadData() {
+        dogRepo.fetchAllBreeds { [weak self] result in
+            if let breeds = try? result.get() {
+                self?.breeds = breeds
+                self?.onReloadData?()
+            }
+        }
+    }
+    
 }
 
 // MARK: - ItemsViewModel
 
 extension DogBreedsViewModel: ItemsViewModel {
     var items: [ItemCellViewModel] {
-        [
-            DogBreedCellViewModel(),
-            DogBreedCellViewModel(),
-            DogBreedCellViewModel()
-        ]
+        breeds.map({ DogBreedCellViewModel($0) })
     }
 }

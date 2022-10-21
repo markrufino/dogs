@@ -7,8 +7,10 @@
 
 import Foundation
 
-protocol ItemsViewModel {
+protocol ItemsViewModel: AnyObject {
     
     var items: [ItemCellViewModel] { get }
+    
+    var onReloadData: (() -> Void)? { get set }
     
 }
