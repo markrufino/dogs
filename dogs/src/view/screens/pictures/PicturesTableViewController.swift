@@ -11,6 +11,15 @@ class PicturesTableViewController: UITableViewController {
     
     private let viewModel: PicturesTableViewModel
     
+    private let noItemToDisplayView: UIView = {
+        let view = UIView()
+        let label = UILabel(text: "You have reached the last page!")
+        label.textAlignment = .center
+        view.addSubview(label)
+        label.fillSuperview(padding: .allSides(16))
+        return view
+    }()
+    
     init(_ viewModel: PicturesTableViewModel) {
         self.viewModel = viewModel
         super.init(style: .grouped)
@@ -65,7 +74,7 @@ extension PicturesTableViewController {
         viewForFooterInSection section: Int
     ) -> UIView? {
         guard !viewModel.hasReachedLastPage else {
-            return UILabel(text: "No more item to display.")
+            return noItemToDisplayView
         }
         
         let contentView = UIView()
