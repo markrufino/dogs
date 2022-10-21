@@ -15,13 +15,17 @@ class DogPicturesViewModel {
     
     private let breedName: String
     
+    private let subBreed: String?
+    
     private var dogImages: [DogImage] = []
     
     init(
         breedName: String,
+        subBreed: String? = nil,
         dogRepo: DogRepository = DogDataRepository(env: .default)
     ) {
         self.breedName = breedName
+        self.subBreed = subBreed
         self.dogRepo = dogRepo
         
         loadData()
@@ -30,6 +34,7 @@ class DogPicturesViewModel {
     private func loadData() {
         dogRepo.fetchDogImages(
             byBreed: breedName,
+            subBreed: subBreed,
             count: 10,
             inPage: 1
         ) { [weak self] result in
