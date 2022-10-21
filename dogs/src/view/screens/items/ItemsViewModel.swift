@@ -14,3 +14,7 @@ protocol ItemsViewModel: AnyObject {
     var onReloadData: (() -> Void)? { get set }
     
 }
+
+protocol Reloadable: AnyObject {
+    func reload()
+}

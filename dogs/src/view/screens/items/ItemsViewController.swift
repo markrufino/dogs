@@ -13,8 +13,12 @@ class ItemsViewController: UITableViewController {
     
     private let viewModel: ItemsViewModel
     
-    init(_ viewModel: ItemsViewModel) {
+    private let reloadable: Reloadable?
+    
+    /// Inject a reloadable object to enable reloading functionality of this screen
+    init(_ viewModel: ItemsViewModel, _ reloadable: Reloadable? = nil) {
         self.viewModel = viewModel
+        self.reloadable = reloadable
         super.init(style: .plain)
     }
     
@@ -32,7 +36,25 @@ class ItemsViewController: UITableViewController {
         
         viewModel.onReloadData = { [weak self] in
             self?.tableView.reloadData()
+            self?.refreshControl?.endRefreshing()
         }
+        
+        if reloadable != nil {
+            setupReloader()
+        }
+    }
+    
+    private func setupReloader() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Refresh",
+            style: .plain,
+            target: self,
+            action: #selector(reloadScreen)
+        )
+        
+        refreshControl = UIRefreshControl()
+        
+        refreshControl?.addTarget(self, action: #selector(reloadScreen), for: .valueChanged)
     }
 
 }
@@ -67,5 +89,15 @@ extension ItemsViewController {
 extension ItemsViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectItemAt?(indexPath)
+    }
+}
+
+// MARK: - Actions
+
+extension ItemsViewController {
+    @objc
+    private func reloadScreen() {
+        refreshControl?.beginRefreshing()
+        reloadable?.reload()
     }
 }

@@ -13,7 +13,7 @@ class PicturesTableViewController: UITableViewController {
     
     init(_ viewModel: PicturesTableViewModel) {
         self.viewModel = viewModel
-        super.init(style: .plain)
+        super.init(style: .grouped)
     }
     
     required init?(coder: NSCoder) {
@@ -27,6 +27,8 @@ class PicturesTableViewController: UITableViewController {
     
     private func setup() {
         tableView.register(PictureCell.self, forCellReuseIdentifier: PictureCell.description())
+        tableView.allowsSelection = false
+        tableView.separatorStyle = .none
         
         viewModel.onReloadData = { [weak self] in
             self?.tableView.reloadData()
@@ -56,5 +58,31 @@ extension PicturesTableViewController {
         pictureCell.imageURL = viewModel.imageURLs[indexPath.row]
         
         return pictureCell
+    }
+    
+    override func tableView(
+        _ tableView: UITableView,
+        viewForFooterInSection section: Int
+    ) -> UIView? {
+        guard !viewModel.hasReachedLastPage else {
+            return UILabel(text: "No more item to display.")
+        }
+        
+        let contentView = UIView()
+        
+        let button = UIButton(title: "Load Next Page", titleColor: .white)
+        button.addAction(.init(handler: { [weak self] _ in
+            self?.viewModel.loadNextPage()
+        }), for: .touchUpInside)
+        button.backgroundColor = .systemBlue
+        
+        let buttonHeight: CGFloat = 50
+        button.withHeight(buttonHeight)
+        button.layer.cornerRadius = buttonHeight / 2
+        
+        contentView.addSubview(button)
+        button.fillSuperview(padding: .allSides(16))
+        
+        return contentView
     }
 }
