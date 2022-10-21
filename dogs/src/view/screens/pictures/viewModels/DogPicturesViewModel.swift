@@ -17,6 +17,8 @@ class DogPicturesViewModel {
     
     private var dogImages: [DogImage] = []
     
+    private var currentPage = 1
+    
     init(
         breedName: String,
         dogRepo: DogRepository = DogDataRepository(env: .default)
@@ -24,26 +26,26 @@ class DogPicturesViewModel {
         self.breedName = breedName
         self.dogRepo = dogRepo
         
-        loadData()
+        loadNextPage()
     }
-    
-    private func loadData() {
-        dogRepo.fetchDogImages(
-            byBreed: breedName,
-            count: 10,
-            inPage: 1
-        ) { [weak self] result in
-            if let dogImages = try? result.get() {
-                self?.dogImages = dogImages
-                self?.onReloadData?()
-            }
-        }
-    }
-    
 }
 
 extension DogPicturesViewModel: PicturesTableViewModel {
     var imageURLs: [URL] {
         dogImages.map({ $0.url })
+    }
+    
+    func loadNextPage() {
+        dogRepo.fetchDogImages(
+            byBreed: breedName,
+            count: 10,
+            inPage: currentPage
+        ) { [weak self] result in
+            guard let dogImages = try? result.get(), let self = self else { return }
+            
+            self.dogImages.append(contentsOf: dogImages)
+            self.onReloadData?()
+            self.currentPage += 1
+        }
     }
 }
