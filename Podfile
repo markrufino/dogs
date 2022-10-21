@@ -8,7 +8,8 @@ target 'dogs' do
   # Pods for dogs
   pod 'Alamofire'
   pod 'Moya'
-  pod 'LBTATools'
+  pod 'LBTATools', '~> 1.0.12'
+  pod 'Kingfisher', '~> 7.3.1'
 
   target 'dogsTests' do
     inherit! :search_paths
