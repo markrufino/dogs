@@ -9,10 +9,19 @@ import UIKit
 
 class ItemsViewController: UITableViewController {
     
-    let dummyViewModel: ItemsViewModel = DogBreedsViewModel()
-    
     var didSelectItemAt: ((IndexPath) -> Void)?
-
+    
+    private let viewModel: ItemsViewModel
+    
+    init(_ viewModel: ItemsViewModel) {
+        self.viewModel = viewModel
+        super.init(style: .plain)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -20,6 +29,10 @@ class ItemsViewController: UITableViewController {
     
     private func setup() {
         tableView.register(ItemCell.self, forCellReuseIdentifier: ItemCell.description())
+        
+        viewModel.onReloadData = { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 
 }
@@ -31,7 +44,7 @@ extension ItemsViewController {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        dummyViewModel.items.count
+        viewModel.items.count
     }
     
     override func tableView(
@@ -43,7 +56,7 @@ extension ItemsViewController {
             for: indexPath
         ) as? ItemCell else { fatalError("Failed to dequeue cell") }
         
-        cell.viewModel = dummyViewModel.items[indexPath.row]
+        cell.viewModel = viewModel.items[indexPath.row]
         
         return cell
     }
