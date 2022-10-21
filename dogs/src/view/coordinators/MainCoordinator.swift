@@ -20,7 +20,13 @@ class MainCoordinator {
         let mainVC = ItemsViewController(vm)
         mainVC.title = "Breeds"
         mainVC.didSelectItemAt = { indexPath in
-            self.showSubBreedsViewFor(vm.breeds[indexPath.row])
+            let breed = vm.breeds[indexPath.row]
+            if breed.subBreeds.isEmpty {
+                // If there's no subreed, just show the dog images instead.
+                self.showPicturesFor(breedName: breed.main)
+            } else {
+                self.showSubBreedsViewFor(vm.breeds[indexPath.row])
+            }
         }
         nav.pushViewController(mainVC, animated: false)
     }
@@ -29,8 +35,19 @@ class MainCoordinator {
         let vm = DogSubBreedsViewModel(breed)
         let itemsVC = ItemsViewController(vm)
         itemsVC.title = "\(breed.main.capitalized) subbreeds"
+        itemsVC.didSelectItemAt = { indexPath in
+            let breedName = breed.subBreeds[indexPath.row]
+            self.showPicturesFor(breedName: breedName)
+        }
         
         nav.pushViewController(itemsVC, animated: true)
+    }
+    
+    func showPicturesFor(breedName: String) {
+        let vm = DogPicturesViewModel(breedName: breedName)
+        let pictureTableVC = PicturesTableViewController(vm)
+        
+        nav.pushViewController(pictureTableVC, animated: true)
     }
     
 }
