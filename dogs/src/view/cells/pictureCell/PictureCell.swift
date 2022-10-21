@@ -11,7 +11,7 @@ class PictureCell: UITableViewCell {
     
     var imageURL: URL? {
         didSet {
-            roundedImageView.kf.setImage(with: imageURL)
+            setupImage(url: imageURL)
         }
     }
 
@@ -34,6 +34,7 @@ private extension PictureCell {
         roundedImageView.contentMode = .scaleAspectFill
         roundedImageView.layer.cornerRadius = 30
         roundedImageView.clipsToBounds = true
+        roundedImageView.kf.indicatorType = .activity
         
         contentView.addSubview(roundedImageView)
         
@@ -43,5 +44,15 @@ private extension PictureCell {
             .constraint(equalTo: roundedImageView.widthAnchor)
         heightConstraint.priority = .defaultHigh
         heightConstraint.isActive = true
+    }
+    
+    func setupImage(url: URL?) {
+        roundedImageView.kf.setImage(
+            with: url,
+            placeholder: UIImage(named: "placeholderImage"),
+            options: [
+                .scaleFactor(UIScreen.main.scale),
+                .transition(.fade(1))
+            ])
     }
 }
