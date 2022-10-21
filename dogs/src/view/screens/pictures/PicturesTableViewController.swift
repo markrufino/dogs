@@ -27,6 +27,8 @@ class PicturesTableViewController: UITableViewController {
     
     private func setup() {
         tableView.register(PictureCell.self, forCellReuseIdentifier: PictureCell.description())
+        tableView.allowsSelection = false
+        tableView.separatorStyle = .none
         
         viewModel.onReloadData = { [weak self] in
             self?.tableView.reloadData()

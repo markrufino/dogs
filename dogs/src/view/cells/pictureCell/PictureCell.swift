@@ -38,7 +38,12 @@ private extension PictureCell {
         
         contentView.addSubview(roundedImageView)
         
-        roundedImageView.fillSuperview(padding: .allSides(16))
+        roundedImageView.fillSuperview(padding: .init(
+            top: 8,
+            left: 16,
+            bottom: 8,
+            right: 16)
+        )
         let heightConstraint = roundedImageView
             .heightAnchor
             .constraint(equalTo: roundedImageView.widthAnchor)
