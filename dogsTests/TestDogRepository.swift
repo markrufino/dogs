@@ -51,18 +51,20 @@ class TestDogRepository: XCTestCase {
         let breed = "australian"
         let subBreed = "shepherd"
         let expectation = self.expectation(description: "fetch")
+        var images: [DogImage] = []
         
         // Test exceeding page
-        repository.fetchDogImages(byBreed: breed, subBreed: subBreed, count: 10, inPage: 2) { result in
+        repository.fetchDogImages(byBreed: breed, subBreed: subBreed, count: 10, inPage: 1000) { result in
             switch result {
-            case .success(let images):
-                XCTAssert(images.isEmpty)
+            case .success(let _images):
+                images = _images;
                 expectation.fulfill()
             case .failure:
                 XCTAssert(false)
             }
         }
         waitForExpectations(timeout: 3, handler: nil)
+        XCTAssert(images.isEmpty)
     }
     
 }
