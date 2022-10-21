@@ -22,13 +22,24 @@
 		5C3E414D2901186D00249EDB /* Array+chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E414C2901186D00249EDB /* Array+chunked.swift */; };
 		5C5BB8862900E91000E488B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5BB8852900E91000E488B1 /* AppDelegate.swift */; };
 		5C5BB8882900E91000E488B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5BB8872900E91000E488B1 /* SceneDelegate.swift */; };
-		5C5BB88A2900E91000E488B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5BB8892900E91000E488B1 /* ViewController.swift */; };
-		5C5BB88D2900E91000E488B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C5BB88B2900E91000E488B1 /* Main.storyboard */; };
+		5C5BB88A2900E91000E488B1 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5BB8892900E91000E488B1 /* ItemsViewController.swift */; };
 		5C5BB88F2900E91100E488B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C5BB88E2900E91100E488B1 /* Assets.xcassets */; };
 		5C5BB8922900E91100E488B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C5BB8902900E91100E488B1 /* LaunchScreen.storyboard */; };
 		5C5BB8A72900E91100E488B1 /* dogsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5BB8A62900E91100E488B1 /* dogsUITests.swift */; };
 		5C5BB8A92900E91100E488B1 /* dogsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5BB8A82900E91100E488B1 /* dogsUITestsLaunchTests.swift */; };
 		AB324E1524A3E4215234FAF8 /* libPods-dogs-dogsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCCF1B380AFE7D7F151106A /* libPods-dogs-dogsUITests.a */; };
+		F925EF282902120C00D49C5D /* ItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF272902120C00D49C5D /* ItemsViewModel.swift */; };
+		F925EF2B2902167000D49C5D /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF2A2902167000D49C5D /* ItemCell.swift */; };
+		F925EF2D2902172D00D49C5D /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF2C2902172D00D49C5D /* ItemCellViewModel.swift */; };
+		F925EF2F2902181800D49C5D /* DogBreedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF2E2902181800D49C5D /* DogBreedCellViewModel.swift */; };
+		F925EF31290218B000D49C5D /* DogBreedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF30290218AF00D49C5D /* DogBreedsViewModel.swift */; };
+		F925EF34290229A200D49C5D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF33290229A200D49C5D /* MainCoordinator.swift */; };
+		F925EF3629022E4300D49C5D /* DogSubBreedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF3529022E4300D49C5D /* DogSubBreedsViewModel.swift */; };
+		F925EF3829022F4B00D49C5D /* DogSubBreedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF3729022F4B00D49C5D /* DogSubBreedCellViewModel.swift */; };
+		F925EF402902333100D49C5D /* PicturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF3F2902333100D49C5D /* PicturesTableViewController.swift */; };
+		F925EF432902342D00D49C5D /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF422902342D00D49C5D /* PictureCell.swift */; };
+		F925EF45290239A900D49C5D /* PicturesTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF44290239A900D49C5D /* PicturesTableViewModel.swift */; };
+		F925EF4829023A2D00D49C5D /* DogPicturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF4729023A2D00D49C5D /* DogPicturesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +74,7 @@
 		5C5BB8822900E91000E488B1 /* dogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C5BB8852900E91000E488B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C5BB8872900E91000E488B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5C5BB8892900E91000E488B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5C5BB88C2900E91000E488B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5C5BB8892900E91000E488B1 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		5C5BB88E2900E91100E488B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C5BB8912900E91100E488B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C5BB8932900E91100E488B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,6 +91,18 @@
 		D0DAF73DA8F6462EBB2C8915 /* Pods-dogs-dogsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dogs-dogsUITests.debug.xcconfig"; path = "Target Support Files/Pods-dogs-dogsUITests/Pods-dogs-dogsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA834BDF59410B50FEFFEF00 /* Pods-dogs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dogs.debug.xcconfig"; path = "Target Support Files/Pods-dogs/Pods-dogs.debug.xcconfig"; sourceTree = "<group>"; };
 		EBCCF1B380AFE7D7F151106A /* libPods-dogs-dogsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dogs-dogsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F925EF272902120C00D49C5D /* ItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewModel.swift; sourceTree = "<group>"; };
+		F925EF2A2902167000D49C5D /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		F925EF2C2902172D00D49C5D /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
+		F925EF2E2902181800D49C5D /* DogBreedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedCellViewModel.swift; sourceTree = "<group>"; };
+		F925EF30290218AF00D49C5D /* DogBreedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedsViewModel.swift; sourceTree = "<group>"; };
+		F925EF33290229A200D49C5D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		F925EF3529022E4300D49C5D /* DogSubBreedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogSubBreedsViewModel.swift; sourceTree = "<group>"; };
+		F925EF3729022F4B00D49C5D /* DogSubBreedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogSubBreedCellViewModel.swift; sourceTree = "<group>"; };
+		F925EF3F2902333100D49C5D /* PicturesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesTableViewController.swift; sourceTree = "<group>"; };
+		F925EF422902342D00D49C5D /* PictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
+		F925EF44290239A900D49C5D /* PicturesTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesTableViewModel.swift; sourceTree = "<group>"; };
+		F925EF4729023A2D00D49C5D /* DogPicturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPicturesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,10 +209,8 @@
 				5C5BB8932900E91100E488B1 /* Info.plist */,
 				5C5BB8852900E91000E488B1 /* AppDelegate.swift */,
 				5C5BB8872900E91000E488B1 /* SceneDelegate.swift */,
-				5C5BB8892900E91000E488B1 /* ViewController.swift */,
 				5C5BB88E2900E91100E488B1 /* Assets.xcassets */,
 				5C5BB8902900E91100E488B1 /* LaunchScreen.storyboard */,
-				5C5BB88B2900E91000E488B1 /* Main.storyboard */,
 				5C5BB8B82900EADB00E488B1 /* src */,
 			);
 			path = dogs;
@@ -224,13 +244,6 @@
 			path = api;
 			sourceTree = "<group>";
 		};
-		5C5BB8B62900EA9000E488B1 /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
 		5C5BB8B72900EABE00E488B1 /* repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,9 +255,9 @@
 		5C5BB8B82900EADB00E488B1 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				F925EF262902117A00D49C5D /* view */,
 				5C3E414B2901185B00249EDB /* extensions */,
 				5C3E413F29010A4200249EDB /* model */,
-				5C5BB8B62900EA9000E488B1 /* view */,
 				5C5BB8B72900EABE00E488B1 /* repository */,
 				5C5BB8B52900EA6600E488B1 /* api */,
 			);
@@ -259,6 +272,106 @@
 				7C213A080603AB9ED3308971 /* libPods-dogsTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F925EF262902117A00D49C5D /* view */ = {
+			isa = PBXGroup;
+			children = (
+				F925EF392902327600D49C5D /* screens */,
+				F925EF322902299200D49C5D /* coordinators */,
+				F925EF292902165500D49C5D /* cells */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		F925EF292902165500D49C5D /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				F925EF412902341A00D49C5D /* pictureCell */,
+				F925EF3C290232AA00D49C5D /* itemCell */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		F925EF322902299200D49C5D /* coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				F925EF33290229A200D49C5D /* MainCoordinator.swift */,
+			);
+			path = coordinators;
+			sourceTree = "<group>";
+		};
+		F925EF392902327600D49C5D /* screens */ = {
+			isa = PBXGroup;
+			children = (
+				F925EF3E290232F500D49C5D /* pictures */,
+				F925EF3A2902327C00D49C5D /* items */,
+			);
+			path = screens;
+			sourceTree = "<group>";
+		};
+		F925EF3A2902327C00D49C5D /* items */ = {
+			isa = PBXGroup;
+			children = (
+				F925EF3B2902329300D49C5D /* viewModels */,
+				5C5BB8892900E91000E488B1 /* ItemsViewController.swift */,
+				F925EF272902120C00D49C5D /* ItemsViewModel.swift */,
+			);
+			path = items;
+			sourceTree = "<group>";
+		};
+		F925EF3B2902329300D49C5D /* viewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F925EF30290218AF00D49C5D /* DogBreedsViewModel.swift */,
+				F925EF3529022E4300D49C5D /* DogSubBreedsViewModel.swift */,
+			);
+			path = viewModels;
+			sourceTree = "<group>";
+		};
+		F925EF3C290232AA00D49C5D /* itemCell */ = {
+			isa = PBXGroup;
+			children = (
+				F925EF3D290232B900D49C5D /* viewModels */,
+				F925EF2A2902167000D49C5D /* ItemCell.swift */,
+				F925EF2C2902172D00D49C5D /* ItemCellViewModel.swift */,
+			);
+			path = itemCell;
+			sourceTree = "<group>";
+		};
+		F925EF3D290232B900D49C5D /* viewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F925EF2E2902181800D49C5D /* DogBreedCellViewModel.swift */,
+				F925EF3729022F4B00D49C5D /* DogSubBreedCellViewModel.swift */,
+			);
+			path = viewModels;
+			sourceTree = "<group>";
+		};
+		F925EF3E290232F500D49C5D /* pictures */ = {
+			isa = PBXGroup;
+			children = (
+				F925EF4629023A2100D49C5D /* viewModels */,
+				F925EF3F2902333100D49C5D /* PicturesTableViewController.swift */,
+				F925EF44290239A900D49C5D /* PicturesTableViewModel.swift */,
+			);
+			path = pictures;
+			sourceTree = "<group>";
+		};
+		F925EF412902341A00D49C5D /* pictureCell */ = {
+			isa = PBXGroup;
+			children = (
+				F925EF422902342D00D49C5D /* PictureCell.swift */,
+			);
+			path = pictureCell;
+			sourceTree = "<group>";
+		};
+		F925EF4629023A2100D49C5D /* viewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F925EF4729023A2D00D49C5D /* DogPicturesViewModel.swift */,
+			);
+			path = viewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,7 +486,6 @@
 				5C3E414429010CBE00249EDB /* stubGetAllBreeds.json in Resources */,
 				5C3E414629010CE200249EDB /* stubGetImagesByBreed.json in Resources */,
 				5C5BB88F2900E91100E488B1 /* Assets.xcassets in Resources */,
-				5C5BB88D2900E91000E488B1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,16 +579,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F925EF45290239A900D49C5D /* PicturesTableViewModel.swift in Sources */,
+				F925EF34290229A200D49C5D /* MainCoordinator.swift in Sources */,
+				F925EF3629022E4300D49C5D /* DogSubBreedsViewModel.swift in Sources */,
+				F925EF402902333100D49C5D /* PicturesTableViewController.swift in Sources */,
 				5C3E414129010A5100249EDB /* Breed.swift in Sources */,
-				5C5BB88A2900E91000E488B1 /* ViewController.swift in Sources */,
+				5C5BB88A2900E91000E488B1 /* ItemsViewController.swift in Sources */,
+				F925EF432902342D00D49C5D /* PictureCell.swift in Sources */,
 				5C3E414D2901186D00249EDB /* Array+chunked.swift in Sources */,
 				5C3E41322900F8FE00249EDB /* ApiService.swift in Sources */,
 				5C5BB8862900E91000E488B1 /* AppDelegate.swift in Sources */,
+				F925EF2D2902172D00D49C5D /* ItemCellViewModel.swift in Sources */,
+				F925EF2B2902167000D49C5D /* ItemCell.swift in Sources */,
 				5C3E413C2901073400249EDB /* GetImagesByBreedResponse.swift in Sources */,
 				5C3E412A2900EDAE00249EDB /* DogRepository.swift in Sources */,
+				F925EF2F2902181800D49C5D /* DogBreedCellViewModel.swift in Sources */,
+				F925EF282902120C00D49C5D /* ItemsViewModel.swift in Sources */,
 				5C3E414A2901157500249EDB /* DogImage.swift in Sources */,
 				5C3E41372900FC4F00249EDB /* ApiProvider.swift in Sources */,
+				F925EF3829022F4B00D49C5D /* DogSubBreedCellViewModel.swift in Sources */,
 				5C5BB8882900E91000E488B1 /* SceneDelegate.swift in Sources */,
+				F925EF4829023A2D00D49C5D /* DogPicturesViewModel.swift in Sources */,
+				F925EF31290218B000D49C5D /* DogBreedsViewModel.swift in Sources */,
 				5C3E413A2901071400249EDB /* GetAllBreedsResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,14 +638,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5C5BB88B2900E91000E488B1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5C5BB88C2900E91000E488B1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5C5BB8902900E91100E488B1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -660,9 +776,9 @@
 				INFOPLIST_FILE = dogs/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -689,9 +805,9 @@
 				INFOPLIST_FILE = dogs/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
