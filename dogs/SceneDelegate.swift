@@ -10,6 +10,8 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    var coordinator: MainCoordinator?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -20,8 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let mainVC = ItemsViewController()
-        let nav = UINavigationController(rootViewController: mainVC)
+        let nav = UINavigationController()
+        let coordinator = MainCoordinator(navigationController: nav)
+        coordinator.start()
         
         window.rootViewController = nav
         
