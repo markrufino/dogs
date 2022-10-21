@@ -11,28 +11,33 @@ import XCTest
 class TestDogRepository: XCTestCase {
     
     func testFetchAllBreeds() {
-        let repository = DogDataRepository(env: .test)
+        let repository = DogDataRepository(env: .default)
+        let expectation = self.expectation(description: "fetchAllBreeds")
+        var breeds: [Breed] = []
         
         repository.fetchAllBreeds { result in
             switch result {
-            case .success(let breeds):
-                XCTAssert(!breeds.isEmpty)
-                XCTAssertEqual(breeds.count, 98)
-                XCTAssertEqual(breeds[5].subBreeds[0], "shepherd")
+            case .success(let _breeds):
+                breeds = _breeds
+                expectation.fulfill()
             case .failure:
                 XCTAssert(false)
             }
         }
         
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssert(!breeds.isEmpty)
+        XCTAssertEqual(breeds.count, 98)
+        XCTAssertEqual(breeds[5].subBreeds[0], "shepherd")
     }
     
-    func testFetchDogImagesByBreed() {
+    func test_fetchDogImagesByBreedOnly() {
         let repository = DogDataRepository(env: .default)
         let breed = "hound"
         let expectation = self.expectation(description: "fetchByBreed")
         var images: [DogImage] = []
         
-        repository.fetchDogImages(byBreed: breed, subBreed: "afghan", count: 3, inPage: 2) { result in
+        repository.fetchDogImages(byBreed: breed, subBreed: nil, count: 10, inPage: 1) { result in
             switch result {
             case .success(let _images):
                 images = _images;
@@ -42,18 +47,55 @@ class TestDogRepository: XCTestCase {
             }
         }
         waitForExpectations(timeout: 10, handler: nil)
-        XCTAssert(!images.isEmpty)
-        XCTAssertEqual(images[1].url.absoluteString, "https://images.dog.ceo/breeds/hound-afghan/n02088094_10715.jpg")
+        XCTAssertEqual(images.count, 10)
     }
     
-    func testFetchDogImagesWithSubBreed() {
+    func test_fetchDogImagesByBreedOnlyPagination() {
         let repository = DogDataRepository(env: .default)
-        let breed = "australian"
-        let subBreed = "shepherd"
-        let expectation = self.expectation(description: "fetch")
+        let breed = "hound"
+        let expectation = self.expectation(description: "fetchByBreed")
         var images: [DogImage] = []
         
-        // Test exceeding page
+        repository.fetchDogImages(byBreed: breed, subBreed: nil, count: 10, inPage: 2) { result in
+            switch result {
+            case .success(let _images):
+                images = _images;
+                expectation.fulfill()
+            case .failure:
+                XCTAssert(false)
+            }
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssertEqual(images[1].url.absoluteString, "https://images.dog.ceo/breeds/hound-afghan/n02088094_1126.jpg")
+    }
+    
+    func test_fetchDogImagesWithSubBreed() {
+        let repository = DogDataRepository(env: .default)
+        let breed = "hound"
+        let subBreed = "afghan"
+        let expectation = self.expectation(description: "fetchByBreed")
+        var images: [DogImage] = []
+        
+        repository.fetchDogImages(byBreed: breed, subBreed: subBreed, count: 10, inPage: 1) { result in
+            switch result {
+            case .success(let _images):
+                images = _images;
+                expectation.fulfill()
+            case .failure:
+                XCTAssert(false)
+            }
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssertEqual(images[2].url.absoluteString, "https://images.dog.ceo/breeds/hound-afghan/n02088094_1023.jpg")
+    }
+    
+    func test_fetchDogImagesWithSubBreedExceedPagination() {
+        let repository = DogDataRepository(env: .default)
+        let breed = "hound"
+        let subBreed = "afghan"
+        let expectation = self.expectation(description: "fetchByBreed")
+        var images: [DogImage] = []
+        
         repository.fetchDogImages(byBreed: breed, subBreed: subBreed, count: 10, inPage: 1000) { result in
             switch result {
             case .success(let _images):
@@ -63,7 +105,7 @@ class TestDogRepository: XCTestCase {
                 XCTAssert(false)
             }
         }
-        waitForExpectations(timeout: 3, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
         XCTAssert(images.isEmpty)
     }
     
