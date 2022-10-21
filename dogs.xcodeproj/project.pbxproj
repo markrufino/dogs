@@ -40,6 +40,7 @@
 		F925EF432902342D00D49C5D /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF422902342D00D49C5D /* PictureCell.swift */; };
 		F925EF45290239A900D49C5D /* PicturesTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF44290239A900D49C5D /* PicturesTableViewModel.swift */; };
 		F925EF4829023A2D00D49C5D /* DogPicturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF4729023A2D00D49C5D /* DogPicturesViewModel.swift */; };
+		F925EF4A290267D800D49C5D /* TestPicturesTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF49290267D800D49C5D /* TestPicturesTableViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		F925EF422902342D00D49C5D /* PictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
 		F925EF44290239A900D49C5D /* PicturesTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesTableViewModel.swift; sourceTree = "<group>"; };
 		F925EF4729023A2D00D49C5D /* DogPicturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPicturesViewModel.swift; sourceTree = "<group>"; };
+		F925EF49290267D800D49C5D /* TestPicturesTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPicturesTableViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				5C3E413D290107ED00249EDB /* TestDogRepository.swift */,
+				F925EF49290267D800D49C5D /* TestPicturesTableViewModel.swift */,
 			);
 			path = dogsTests;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C3E413E290107ED00249EDB /* TestDogRepository.swift in Sources */,
+				F925EF4A290267D800D49C5D /* TestPicturesTableViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,7 +703,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -753,7 +757,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -832,7 +836,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PGXASBAT5S;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -860,7 +864,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PGXASBAT5S;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
