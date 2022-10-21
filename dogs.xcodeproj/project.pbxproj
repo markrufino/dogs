@@ -33,6 +33,9 @@
 		F925EF2D2902172D00D49C5D /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF2C2902172D00D49C5D /* ItemCellViewModel.swift */; };
 		F925EF2F2902181800D49C5D /* DogBreedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF2E2902181800D49C5D /* DogBreedCellViewModel.swift */; };
 		F925EF31290218B000D49C5D /* DogBreedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF30290218AF00D49C5D /* DogBreedsViewModel.swift */; };
+		F925EF34290229A200D49C5D /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF33290229A200D49C5D /* MainCoordinator.swift */; };
+		F925EF3629022E4300D49C5D /* DogSubBreedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF3529022E4300D49C5D /* DogSubBreedsViewModel.swift */; };
+		F925EF3829022F4B00D49C5D /* DogSubBreedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F925EF3729022F4B00D49C5D /* DogSubBreedCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +92,9 @@
 		F925EF2C2902172D00D49C5D /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
 		F925EF2E2902181800D49C5D /* DogBreedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedCellViewModel.swift; sourceTree = "<group>"; };
 		F925EF30290218AF00D49C5D /* DogBreedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedsViewModel.swift; sourceTree = "<group>"; };
+		F925EF33290229A200D49C5D /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		F925EF3529022E4300D49C5D /* DogSubBreedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogSubBreedsViewModel.swift; sourceTree = "<group>"; };
+		F925EF3729022F4B00D49C5D /* DogSubBreedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogSubBreedCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,10 +269,12 @@
 		F925EF262902117A00D49C5D /* view */ = {
 			isa = PBXGroup;
 			children = (
+				F925EF322902299200D49C5D /* coordinators */,
 				F925EF292902165500D49C5D /* cells */,
 				5C5BB8892900E91000E488B1 /* ItemsViewController.swift */,
 				F925EF272902120C00D49C5D /* ItemsViewModel.swift */,
 				F925EF30290218AF00D49C5D /* DogBreedsViewModel.swift */,
+				F925EF3529022E4300D49C5D /* DogSubBreedsViewModel.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -277,8 +285,17 @@
 				F925EF2A2902167000D49C5D /* ItemCell.swift */,
 				F925EF2C2902172D00D49C5D /* ItemCellViewModel.swift */,
 				F925EF2E2902181800D49C5D /* DogBreedCellViewModel.swift */,
+				F925EF3729022F4B00D49C5D /* DogSubBreedCellViewModel.swift */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		F925EF322902299200D49C5D /* coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				F925EF33290229A200D49C5D /* MainCoordinator.swift */,
+			);
+			path = coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -486,6 +503,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F925EF34290229A200D49C5D /* MainCoordinator.swift in Sources */,
+				F925EF3629022E4300D49C5D /* DogSubBreedsViewModel.swift in Sources */,
 				5C3E414129010A5100249EDB /* Breed.swift in Sources */,
 				5C5BB88A2900E91000E488B1 /* ItemsViewController.swift in Sources */,
 				5C3E414D2901186D00249EDB /* Array+chunked.swift in Sources */,
@@ -499,6 +518,7 @@
 				F925EF282902120C00D49C5D /* ItemsViewModel.swift in Sources */,
 				5C3E414A2901157500249EDB /* DogImage.swift in Sources */,
 				5C3E41372900FC4F00249EDB /* ApiProvider.swift in Sources */,
+				F925EF3829022F4B00D49C5D /* DogSubBreedCellViewModel.swift in Sources */,
 				5C5BB8882900E91000E488B1 /* SceneDelegate.swift in Sources */,
 				F925EF31290218B000D49C5D /* DogBreedsViewModel.swift in Sources */,
 				5C3E413A2901071400249EDB /* GetAllBreedsResponse.swift in Sources */,
