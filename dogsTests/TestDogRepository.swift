@@ -34,7 +34,7 @@ class TestDogRepository: XCTestCase {
     func test_fetchDogImagesByBreedOnly() {
         let repository = DogDataRepository(env: .default)
         let breed = "hound"
-        let expectation = self.expectation(description: "fetchByBreed")
+        let expectation = self.expectation(description: "fetchByBreedOnly")
         var images: [DogImage] = []
         
         repository.fetchDogImages(byBreed: breed, subBreed: nil, count: 10, inPage: 1) { result in
@@ -53,7 +53,7 @@ class TestDogRepository: XCTestCase {
     func test_fetchDogImagesByBreedOnlyPagination() {
         let repository = DogDataRepository(env: .default)
         let breed = "hound"
-        let expectation = self.expectation(description: "fetchByBreed")
+        let expectation = self.expectation(description: "fetchDogImagesByBreedOnlyPagination")
         var images: [DogImage] = []
         
         repository.fetchDogImages(byBreed: breed, subBreed: nil, count: 10, inPage: 2) { result in
@@ -73,7 +73,7 @@ class TestDogRepository: XCTestCase {
         let repository = DogDataRepository(env: .default)
         let breed = "hound"
         let subBreed = "afghan"
-        let expectation = self.expectation(description: "fetchByBreed")
+        let expectation = self.expectation(description: "fetchDogImagesWithSubBreed")
         var images: [DogImage] = []
         
         repository.fetchDogImages(byBreed: breed, subBreed: subBreed, count: 10, inPage: 1) { result in
@@ -93,7 +93,7 @@ class TestDogRepository: XCTestCase {
         let repository = DogDataRepository(env: .default)
         let breed = "hound"
         let subBreed = "afghan"
-        let expectation = self.expectation(description: "fetchByBreed")
+        let expectation = self.expectation(description: "fetchDogImagesWithSubBreedExceedPagination")
         var images: [DogImage] = []
         
         repository.fetchDogImages(byBreed: breed, subBreed: subBreed, count: 10, inPage: 1000) { result in
