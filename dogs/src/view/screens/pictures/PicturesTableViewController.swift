@@ -64,6 +64,10 @@ extension PicturesTableViewController {
         _ tableView: UITableView,
         viewForFooterInSection section: Int
     ) -> UIView? {
+        guard !viewModel.hasReachedLastPage else {
+            return UILabel(text: "No more item to display.")
+        }
+        
         let contentView = UIView()
         
         let button = UIButton(title: "Load Next Page", titleColor: .white)

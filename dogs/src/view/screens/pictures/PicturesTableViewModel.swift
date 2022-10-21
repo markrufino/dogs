@@ -10,5 +10,6 @@ import Foundation
 protocol PicturesTableViewModel: AnyObject {
     var imageURLs: [URL] { get }
     var onReloadData: (() -> Void)? { get set }
+    var hasReachedLastPage: Bool { get }
     func loadNextPage()
 }

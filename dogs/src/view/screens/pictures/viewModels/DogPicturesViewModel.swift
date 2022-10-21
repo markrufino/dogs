@@ -11,6 +11,8 @@ class DogPicturesViewModel {
     
     var onReloadData: (() -> Void)?
     
+    private(set) var hasReachedLastPage: Bool = false
+    
     private let dogRepo: DogRepository
     
     private let breedName: String
@@ -46,6 +48,10 @@ extension DogPicturesViewModel: PicturesTableViewModel {
             self.dogImages.append(contentsOf: dogImages)
             self.onReloadData?()
             self.currentPage += 1
+            
+            if dogImages.count < 10 {
+                self.hasReachedLastPage = true
+            }
         }
     }
 }
