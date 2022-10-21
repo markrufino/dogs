@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.5.0)
+  - LBTATools (1.0.12)
   - Moya (15.0.0):
     - Moya/Core (= 15.0.0)
   - Moya/Core (15.0.0):
@@ -7,17 +8,20 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - LBTATools
   - Moya
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - LBTATools
     - Moya
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  LBTATools: 389a901a01b9a56bea5682c40cd6e23530f40015
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
 
-PODFILE CHECKSUM: d6b6c55cc120d6fea45f8ee3926aaba23c71956c
+PODFILE CHECKSUM: bc3bce9b7b0712437a9bda6bed39c86c705ef53f
 
 COCOAPODS: 1.11.3
