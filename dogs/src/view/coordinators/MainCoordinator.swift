@@ -46,6 +46,7 @@ class MainCoordinator {
     func showPicturesFor(breedName: String) {
         let vm = DogPicturesViewModel(breedName: breedName)
         let pictureTableVC = PicturesTableViewController(vm)
+        pictureTableVC.title = breedName.capitalized
         
         nav.pushViewController(pictureTableVC, animated: true)
     }
